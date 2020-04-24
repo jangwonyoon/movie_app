@@ -2,24 +2,26 @@ import React from "react";
 import { HashRouter, Route } from "react-router-dom";
 import Home from "./routes/Home";
 import About from "./routes/About";
-import Nav from "./components/Nav";
+import Detail from "./routes/Detail";
+import Navigation from "./components/Navigation";
+import "./App.css";
 
 function App() {
   return (
     <HashRouter>
-      <Nav />
+      <Navigation />
       <Route path="/" exact={true} component={Home} />
-      <Route path="/about" exact={true} component={About} />
+      <Route path="/about" component={About} />
+      <Route path="/movie/:id" component={Detail} />
     </HashRouter>
   );
 }
 
+export default App;
 // exact  -> 자신이 원하는 페이지만 라우팅 하게 만들어 주기
 
 // react router는 원래 path에 걸려 있는 부분을 확인 하기 때문에 exact를 써서
 // 원하는 페이지를 처리한다.
-
-export default App;
 
 /*
 여기서 라우터라는 것은 명령을 받고 실행해주는 역할이고 
